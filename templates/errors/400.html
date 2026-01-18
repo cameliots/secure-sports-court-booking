@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Bad Request{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h1 class="display-4 text-warning">400</h1>
+    <p class="fs-5">Bad Request</p>
+    <p class="text-muted">
+        Your request could not be processed. Please try again.
+    </p>
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">
+        Back to Home
+    </a>
+</div>
+{% endblock %}

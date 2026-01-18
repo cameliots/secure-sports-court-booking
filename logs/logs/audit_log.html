@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audit Log</title>
+</head>
+<body>
+    <h1>Audit Log (Admin Only)</h1>
+
+    <pre>
+{% for line in logs %}
+{{ line }}
+{% endfor %}
+    </pre>
+
+</body>
+</html>

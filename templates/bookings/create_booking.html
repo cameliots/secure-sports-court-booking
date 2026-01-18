@@ -1,0 +1,30 @@
+@login_required
+def create_booking(request):
+    sport = request.GET.get('sport')
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, sport=sport)
+
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+
+            messages.success(
+                request,
+                "Booking has been successfully created"
+            )
+
+            return redirect('my_bookings')
+        # ❌ NO GENERIC ERROR MESSAGE HERE
+    else:
+        form = BookingForm(sport=sport)
+
+    return render(
+        request,
+        'bookings/booking_form.html',
+        {
+            'form': form,
+            'sport': sport
+        }
+    )

@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Edit Booking
+    {% else %}
+        Create Booking
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container my-5" style="max-width: 900px;">
+
+    <!-- 🔴 FORM-LEVEL ERRORS (PAST TIME, DUPLICATE BOOKING, ETC) -->
+    {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm">
+            <strong>Please fix the following errors:</strong>
+            <ul class="mb-0 mt-2">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endif %}
+
+    <!-- PAGE TITLE -->
+    <div class="mb-4">
+        <h2 class="fw-bold">
+            {% if form.instance.pk %}
+                Edit Sports Booking
+            {% else %}
+                Create Sports Booking
+            {% endif %}
+        </h2>
+
+        <p class="text-muted">
+            Choose your court, date, and time to complete your booking.
+        </p>
+    </div>
+
+    <!-- BOOKING CARD -->
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-primary text-white fw-semibold">
+            Booking Details
+        </div>
+
+        <div class="card-body p-4">
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <!-- COURT -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Court</label>
+                    {{ form.court }}
+                </div>
+
+                <!-- DATE -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Booking Date</label>
+                    {{ form.booking_date }}
+                </div>
+
+                <!-- TIME -->
+                <div class="mb-2">
+                    <label class="form-label fw-semibold">Booking Time</label>
+                    {{ form.booking_time }}
+                    <small class="text-muted">
+                        Each booking slot is <strong>1 hour</strong>.
+                    </small>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="d-flex justify-content-end gap-3 mt-4">
+                    <a href="{% url 'my_bookings' %}"
+                       class="btn btn-outline-secondary px-4">
+                        Cancel
+                    </a>
+
+                    <button type="submit"
+                            class="btn btn-success px-4">
+                        {% if form.instance.pk %}
+                            Update Booking
+                        {% else %}
+                            Save Booking
+                        {% endif %}
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- 🟢 UX IMPROVEMENT: DISABLE PAST DATES (CLIENT-SIDE ONLY) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-10">
+
+        <div class="card shadow-lg border-0">
+            <div class="row g-0">
+
+                <!-- LEFT PANEL -->
+                <div class="col-md-5 bg-dark text-white d-flex flex-column justify-content-center p-4">
+                    <h2 class="fw-bold mb-3">Welcome!</h2>
+                    <p class="mb-4">
+                        Securely book sports courts such as badminton, tennis,
+                        and pickleball using our reliable booking system.
+                    </p>
+
+                    {% if not user.is_authenticated %}
+                        <a href="{% url 'login' %}"
+                           class="btn btn-outline-light btn-lg w-75">
+                            Sign In
+                        </a>
+                    {% else %}
+                        <span class="fw-semibold">
+                            You are logged in
+                        </span>
+                    {% endif %}
+                </div>
+
+                <!-- RIGHT PANEL -->
+                <div class="col-md-7 p-5">
+                    <h2 class="fw-bold text-center mb-3">
+                        Secure Sports Court Booking System
+                    </h2>
+
+                    {% if not user.is_authenticated %}
+                        <div class="text-center">
+                            <a href="{% url 'register' %}"
+                               class="btn btn-primary btn-lg px-5 rounded-pill">
+                                Sign Up
+                            </a>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <a href="{% url 'login' %}" class="text-decoration-none">
+                                Already have an account? Login
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="text-center">
+                            <a href="{% url 'dashboard' %}"
+                               class="btn btn-primary btn-lg rounded-pill px-5">
+                                Browse Courts
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

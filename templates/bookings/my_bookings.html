@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="card-title mb-3">My Bookings</h3>
+
+        {% if bookings %}
+            <ul class="list-group">
+                {% for booking in bookings %}
+                    <li class="list-group-item">
+                        <strong>{{ booking.court.name }}</strong><br>
+                        {{ booking.booking_date }} at {{ booking.booking_time }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">No bookings yet.</p>
+        {% endif %}
+
+        <a href="/bookings/create/" class="btn btn-primary mt-3">
+            Create Booking
+        </a>
+    </div>
+</div>
+{% endblock %}
+

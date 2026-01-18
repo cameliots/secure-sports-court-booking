@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="container my-5" style="max-width: 450px;">
+
+    <div class="card shadow-lg border-0 p-4">
+
+        <h3 class="text-center fw-bold mb-4">
+            Create Account
+        </h3>
+        <p class="text-center text-muted small mb-4">
+            Create an account to start booking courts
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- USERNAME -->
+            <div class="mb-3">
+                {{ form.username|add_class:"form-control" }}
+                {% if form.username.errors %}
+                    <div class="alert alert-danger py-1 mt-1 small">
+                        <ul class="mb-0">
+                            {% for error in form.username.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                {{ form.email|add_class:"form-control" }}
+                {% if form.email.errors %}
+                    <div class="alert alert-danger py-1 mt-1 small">
+                        <ul class="mb-0">
+                            {% for error in form.email.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="mb-3">
+                <div class="input-group">
+                    {{ form.password1|add_class:"form-control"|attr:"id:password" }}
+                    <span class="input-group-text" id="togglePassword" role="button">
+                        <i class="fa-solid fa-eye text-secondary"></i>
+                    </span>
+                </div>
+
+                <!-- PASSWORD RULES (NEW) -->
+                <div class="password-hint mt-2" id="passwordHint">
+                    <ul class="mb-0">
+                        <li id="rule-length">At least 8 characters</li>
+                        <li id="rule-common">Not a common password</li>
+                        <li id="rule-numeric">Not entirely numeric</li>
+                    </ul>
+                </div>
+
+                <!-- PASSWORD STRENGTH -->
+                <div class="progress mt-2 d-none" id="password-strength-container" style="height: 6px;">
+                    <div class="progress-bar" id="password-strength-bar" style="width: 0%;"></div>
+                </div>
+
+                <small id="password-strength-text" class="fw-semibold d-none mt-1"></small>
+
+                {% if form.password1.errors %}
+                    <div class="alert alert-danger py-2 mt-2 small">
+                        <ul class="mb-0">
+                            {% for error in form.password1.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="mb-4">
+                <div class="input-group">
+                    {{ form.password2|add_class:"form-control"|attr:"id:confirmPassword" }}
+                    <span class="input-group-text" id="toggleConfirmPassword" role="button">
+                        <i class="fa-solid fa-eye text-secondary"></i>
+                    </span>
+                </div>
+
+                <small id="password-match-text" class="fw-semibold d-none mt-1"></small>
+
+                {% if form.password2.errors %}
+                    <div class="alert alert-danger py-2 mt-2 small">
+                        <ul class="mb-0">
+                            <li>Password does not match.</li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2">
+                SIGN UP
+            </button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small>
+                Already have an account?
+                <a href="{% url 'login' %}">Login</a>
+            </small>
+        </div>
+
+    </div>
+</div>
+
+<!-- PASSWORD UI SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirmPassword");
+
+    const passwordHint = document.getElementById("passwordHint");
+    const ruleLength = document.getElementById("rule-length");
+    const ruleCommon = document.getElementById("rule-common");
+    const ruleNumeric = document.getElementById("rule-numeric");
+
+    const strengthContainer = document.getElementById("password-strength-container");
+    const strengthBar = document.getElementById("password-strength-bar");
+    const strengthText = document.getElementById("password-strength-text");
+    const matchText = document.getElementById("password-match-text");
+
+    const togglePassword = document.getElementById("togglePassword");
+    const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+    const commonPasswords = [
+        "password", "123456", "12345678", "qwerty",
+        "abc123", "password1", "admin", "letmein"
+    ];
+
+    function updateRule(element, condition) {
+        element.style.color = condition ? "#28a745" : "#dc3545";
+    }
+
+    passwordInput.addEventListener("input", function () {
+        const value = passwordInput.value;
+        passwordHint.style.display = value ? "block" : "none";
+
+        updateRule(ruleLength, value.length >= 8);
+        updateRule(ruleCommon, value && !commonPasswords.includes(value.toLowerCase()));
+        updateRule(ruleNumeric, value && !/^\d+$/.test(value));
+
+        let strength = 0;
+        if (value.length >= 8) strength++;
+        if (/[A-Z]/.test(value)) strength++;
+        if (/[a-z]/.test(value)) strength++;
+        if (/\d/.test(value)) strength++;
+        if (/[^A-Za-z0-9]/.test(value)) strength++;
+
+        if (!value) {
+            strengthContainer.classList.add("d-none");
+            strengthText.classList.add("d-none");
+            return;
+        }
+
+        strengthContainer.classList.remove("d-none");
+        strengthText.classList.remove("d-none");
+
+        if (strength <= 2) {
+            strengthBar.style.width = "33%";
+            strengthBar.className = "progress-bar bg-danger";
+            strengthText.textContent = "Weak";
+            strengthText.className = "fw-semibold text-danger mt-1";
+        } else if (strength <= 4) {
+            strengthBar.style.width = "66%";
+            strengthBar.className = "progress-bar bg-warning";
+            strengthText.textContent = "Medium";
+            strengthText.className = "fw-semibold text-warning mt-1";
+        } else {
+            strengthBar.style.width = "100%";
+            strengthBar.className = "progress-bar bg-success";
+            strengthText.textContent = "Strong";
+            strengthText.className = "fw-semibold text-success mt-1";
+        }
+    });
+
+    function checkPasswordMatch() {
+        if (!passwordInput.value || !confirmInput.value) {
+            matchText.classList.add("d-none");
+            return;
+        }
+
+        matchText.classList.remove("d-none");
+        if (passwordInput.value === confirmInput.value) {
+            matchText.textContent = "Passwords match";
+            matchText.className = "fw-semibold text-success mt-1";
+        } else {
+            matchText.textContent = "Passwords do not match";
+            matchText.className = "fw-semibold text-danger mt-1";
+        }
+    }
+
+    passwordInput.addEventListener("input", checkPasswordMatch);
+    confirmInput.addEventListener("input", checkPasswordMatch);
+
+    togglePassword.addEventListener("click", function () {
+        const icon = this.querySelector("i");
+        passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        icon.className = passwordInput.type === "password"
+            ? "fa-solid fa-eye text-secondary"
+            : "fa-solid fa-eye-slash text-secondary";
+    });
+
+    toggleConfirmPassword.addEventListener("click", function () {
+        const icon = this.querySelector("i");
+        confirmInput.type = confirmInput.type === "password" ? "text" : "password";
+        icon.className = confirmInput.type === "password"
+            ? "fa-solid fa-eye text-secondary"
+            : "fa-solid fa-eye-slash text-secondary";
+    });
+});
+</script>
+
+<style>
+.password-hint {
+    display: none;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+</style>
+
+{% endblock %}

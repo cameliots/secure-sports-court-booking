@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Page Heading -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Explore Sports</h2>
+        <p class="text-muted">
+            Select a sport below to start booking your court
+        </p>
+    </div>
+
+    <!-- Sports Cards -->
+    <div class="row justify-content-center g-4">
+
+        <!-- 🏸 BADMINTON -->
+        <div class="col-md-4">
+            <div class="card sport-card shadow-sm h-100 text-center border-0">
+                <div class="image-wrapper">
+                    <img src="{% static 'images/badminton.jpg' %}"
+                         class="card-img-top"
+                         alt="Badminton Court">
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🏸 Badminton</h5>
+                    <p class="card-text text-muted">
+                        Book indoor badminton courts easily
+                    </p>
+                    <a href="{% url 'create_booking' %}?sport=badminton"
+                       class="btn btn-primary rounded-pill px-4">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🎾 TENNIS -->
+        <div class="col-md-4">
+            <div class="card sport-card shadow-sm h-100 text-center border-0">
+                <div class="image-wrapper">
+                    <img src="{% static 'images/tennis.jpg' %}"
+                         class="card-img-top"
+                         alt="Tennis Court">
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🎾 Tennis</h5>
+                    <p class="card-text text-muted">
+                        Reserve tennis courts for practice or matches
+                    </p>
+                    <a href="{% url 'create_booking' %}?sport=tennis"
+                       class="btn btn-primary rounded-pill px-4">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🏓 PICKLEBALL -->
+        <div class="col-md-4">
+            <div class="card sport-card shadow-sm h-100 text-center border-0">
+                <div class="image-wrapper">
+                    <img src="{% static 'images/pickleball.jpg' %}"
+                         class="card-img-top"
+                         alt="Pickleball Court">
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🏓 Pickleball</h5>
+                    <p class="card-text text-muted">
+                        Schedule pickleball sessions with ease
+                    </p>
+                    <a href="{% url 'create_booking' %}?sport=pickleball"
+                       class="btn btn-primary rounded-pill px-4">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- HOVER ANIMATION STYLES -->
+<style>
+/* Card hover movement */
+.sport-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.sport-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Image zoom effect */
+.image-wrapper {
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    transition: transform 0.4s ease;
+}
+
+.sport-card:hover img {
+    transform: scale(1.08);
+}
+</style>
+
+{% endblock %}

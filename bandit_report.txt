@@ -1,0 +1,2611 @@
+Run started:2026-01-17 03:37:37.617573
+
+Test results:
+>> Issue: [B613:trojansource] A Python source file contains bidirectional control characters ('\u202e').
+   Severity: High   Confidence: Medium
+   CWE: CWE-838 (https://cwe.mitre.org/data/definitions/838.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b613_trojansource.html
+   Location: ./venv/lib/python3.9/site-packages/bandit/plugins/trojansource.py:22:36
+21	     3  	access_level = "user"
+22	     4	    if access_level != 'none‮⁦': # Check if admin ⁩⁦' and access_level != 'user
+23	     5	        print("You are an admin.\n")
+
+--------------------------------------------------
+>> Issue: [B613:trojansource] A Python source file contains bidirectional control characters ('\u200f').
+   Severity: High   Confidence: Medium
+   CWE: CWE-838 (https://cwe.mitre.org/data/definitions/838.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b613_trojansource.html
+   Location: ./venv/lib/python3.9/site-packages/django/conf/locale/ar/formats.py:10:23
+9	MONTH_DAY_FORMAT = "j F"
+10	SHORT_DATE_FORMAT = "d‏/m‏/Y"
+11	# SHORT_DATETIME_FORMAT =
+
+--------------------------------------------------
+>> Issue: [B613:trojansource] A Python source file contains bidirectional control characters ('\u200f').
+   Severity: High   Confidence: Medium
+   CWE: CWE-838 (https://cwe.mitre.org/data/definitions/838.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b613_trojansource.html
+   Location: ./venv/lib/python3.9/site-packages/django/conf/locale/ckb/formats.py:11:32
+10	SHORT_DATE_FORMAT = "Y/n/j"
+11	SHORT_DATETIME_FORMAT = "Y/n/j،‏ G:i"
+12	FIRST_DAY_OF_WEEK = 6
+
+--------------------------------------------------
+>> Issue: [B613:trojansource] A Python source file contains bidirectional control characters ('\u200f').
+   Severity: High   Confidence: Medium
+   CWE: CWE-838 (https://cwe.mitre.org/data/definitions/838.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b613_trojansource.html
+   Location: ./venv/lib/python3.9/site-packages/django/conf/locale/fa/formats.py:11:32
+10	SHORT_DATE_FORMAT = "Y/n/j"
+11	SHORT_DATETIME_FORMAT = "Y/n/j،‏ G:i"
+12	FIRST_DAY_OF_WEEK = 6
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/helpers.py:159:15
+158	    def errors(self):
+159	        return mark_safe(
+160	            "\n".join(
+161	                self.form[f].errors.as_ul()
+162	                for f in self.fields
+163	                if f not in self.readonly_fields
+164	            ).strip("\n")
+165	        )
+166	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/helpers.py:159:15
+158	    def errors(self):
+159	        return mark_safe(
+160	            "\n".join(
+161	                self.form[f].errors.as_ul()
+162	                for f in self.fields
+163	                if f not in self.readonly_fields
+164	            ).strip("\n")
+165	        )
+166	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/helpers.py:189:21
+188	        return self.field.label_tag(
+189	            contents=mark_safe(contents),
+190	            attrs=attrs,
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/helpers.py:189:21
+188	        return self.field.label_tag(
+189	            contents=mark_safe(contents),
+190	            attrs=attrs,
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/helpers.py:195:15
+194	    def errors(self):
+195	        return mark_safe(self.field.errors.as_ul())
+196	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/helpers.py:195:15
+194	    def errors(self):
+195	        return mark_safe(self.field.errors.as_ul())
+196	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/options.py:362:19
+361	        try:
+362	            return mark_safe(self.empty_value_display)
+363	        except AttributeError:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/options.py:362:19
+361	        try:
+362	            return mark_safe(self.empty_value_display)
+363	        except AttributeError:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/options.py:364:19
+363	        except AttributeError:
+364	            return mark_safe(self.admin_site.empty_value_display)
+365	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/options.py:364:19
+363	        except AttributeError:
+364	            return mark_safe(self.admin_site.empty_value_display)
+365	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/options.py:965:25
+964	
+965	    @display(description=mark_safe('<input type="checkbox" id="action-toggle">'))
+966	    def action_checkbox(self, obj):
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:49:12
+48	            cl.get_query_string({PAGE_VAR: i}),
+49	            mark_safe(' class="end"' if i == cl.paginator.num_pages else ""),
+50	            i,
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:49:12
+48	            cl.get_query_string({PAGE_VAR: i}),
+49	            mark_safe(' class="end"' if i == cl.paginator.num_pages else ""),
+50	            i,
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:102:36
+101	                    "text": text,
+102	                    "class_attrib": mark_safe(' class="action-checkbox-column"'),
+103	                    "sortable": False,
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:240:20
+239	                    row_classes.append("nowrap")
+240	        row_class = mark_safe(' class="%s"' % " ".join(row_classes))
+241	        # If list_display_links not defined, add the link tag to the first field
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:240:20
+239	                    row_classes.append("nowrap")
+240	        row_class = mark_safe(' class="%s"' % " ".join(row_classes))
+241	        # If list_display_links not defined, add the link tag to the first field
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:288:30
+287	                bf = form[field_name]
+288	                result_repr = mark_safe(str(bf.errors) + str(bf))
+289	            yield format_html("<td{}>{}</td>", row_class, result_repr)
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:288:30
+287	                bf = form[field_name]
+288	                result_repr = mark_safe(str(bf.errors) + str(bf))
+289	            yield format_html("<td{}>{}</td>", row_class, result_repr)
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:319:22
+318	            if form[cl.model._meta.pk.name].is_hidden:
+319	                yield mark_safe(form[cl.model._meta.pk.name])
+320	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admin/templatetags/admin_list.py:319:22
+318	            if form[cl.model._meta.pk.name].is_hidden:
+319	                yield mark_safe(form[cl.model._meta.pk.name])
+320	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admindocs/utils.py:88:11
+87	    )
+88	    return mark_safe(parts["fragment"])
+89	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/admindocs/utils.py:88:11
+87	    )
+88	    return mark_safe(parts["fragment"])
+89	
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/auth/hashers.py:651:15
+650	        self._check_encode_args(password, salt)
+651	        hash = hashlib.sha1((salt + password).encode()).hexdigest()
+652	        return "%s$%s$%s" % (self.algorithm, salt, hash)
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/auth/hashers.py:753:15
+752	            raise ValueError("salt must be empty.")
+753	        hash = hashlib.sha1(password.encode()).hexdigest()
+754	        return "sha1$$%s" % hash
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/flatpages/views.py:67:14
+66	    # content in the first place).
+67	    f.title = mark_safe(f.title)
+68	    f.content = mark_safe(f.content)
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/flatpages/views.py:67:14
+66	    # content in the first place).
+67	    f.title = mark_safe(f.title)
+68	    f.content = mark_safe(f.content)
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/flatpages/views.py:68:16
+67	    f.title = mark_safe(f.title)
+68	    f.content = mark_safe(f.content)
+69	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/flatpages/views.py:68:16
+67	    f.title = mark_safe(f.title)
+68	    f.content = mark_safe(f.content)
+69	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/gis/db/backends/postgis/operations.py:204:20
+203	                raise ImproperlyConfigured(
+204	                    'Cannot determine PostGIS version for database "%s" '
+205	                    'using command "SELECT postgis_lib_version()". '
+206	                    "GeoDjango requires at least PostGIS version 2.5. "
+207	                    "Was the database created from a spatial database "
+208	                    "template?" % self.connection.settings_dict["NAME"]
+209	                )
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/humanize/templatetags/humanize.py:61:11
+60	    # Mark value safe so i18n does not break with <sup> or <sub> see #19988
+61	    return mark_safe(value)
+62	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/humanize/templatetags/humanize.py:61:11
+60	    # Mark value safe so i18n does not break with <sup> or <sub> see #19988
+61	    return mark_safe(value)
+62	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/messages/storage/cookie.py:38:29
+37	                if obj[1]:
+38	                    obj[3] = mark_safe(obj[3])
+39	                return Message(*obj[2:])
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/messages/storage/cookie.py:38:29
+37	                if obj[1]:
+38	                    obj[3] = mark_safe(obj[3])
+39	                return Message(*obj[2:])
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/django/contrib/sitemaps/__init__.py:29:4
+28	    params = urlencode({"sitemap": sitemap_full_url})
+29	    urlopen("%s?%s" % (ping_url, params))
+30	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:69:16
+68	            cursor.execute(
+69	                "SELECT %s, %s, %s FROM %s WHERE %s IN (%s)"
+70	                % (
+71	                    quote_name("cache_key"),
+72	                    quote_name("value"),
+73	                    quote_name("expires"),
+74	                    table,
+75	                    quote_name("cache_key"),
+76	                    ", ".join(["%s"] * len(key_map)),
+77	                ),
+78	                list(key_map),
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:95:24
+94	                value = connection.ops.process_clob(value)
+95	                value = pickle.loads(base64.b64decode(value.encode()))
+96	                result[key_map.get(key)] = value
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:120:27
+119	        with connection.cursor() as cursor:
+120	            cursor.execute("SELECT COUNT(*) FROM %s" % table)
+121	            num = cursor.fetchone()[0]
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:143:24
+142	                    cursor.execute(
+143	                        "SELECT %s, %s FROM %s WHERE %s = %%s"
+144	                        % (
+145	                            quote_name("cache_key"),
+146	                            quote_name("expires"),
+147	                            table,
+148	                            quote_name("cache_key"),
+149	                        ),
+150	                        [key],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:169:28
+168	                        cursor.execute(
+169	                            "UPDATE %s SET %s = %%s WHERE %s = %%s"
+170	                            % (table, quote_name("expires"), quote_name("cache_key")),
+171	                            [exp, key],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:177:28
+176	                        cursor.execute(
+177	                            "UPDATE %s SET %s = %%s, %s = %%s WHERE %s = %%s"
+178	                            % (
+179	                                table,
+180	                                quote_name("value"),
+181	                                quote_name("expires"),
+182	                                quote_name("cache_key"),
+183	                            ),
+184	                            [b64encoded, exp, key],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:188:28
+187	                        cursor.execute(
+188	                            "INSERT INTO %s (%s, %s, %s) VALUES (%%s, %%s, %%s)"
+189	                            % (
+190	                                table,
+191	                                quote_name("cache_key"),
+192	                                quote_name("value"),
+193	                                quote_name("expires"),
+194	                            ),
+195	                            [key, b64encoded, exp],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:224:16
+223	            cursor.execute(
+224	                "DELETE FROM %s WHERE %s IN (%s)"
+225	                % (
+226	                    table,
+227	                    quote_name("cache_key"),
+228	                    ", ".join(["%s"] * len(keys)),
+229	                ),
+230	                keys,
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:245:16
+244	            cursor.execute(
+245	                "SELECT %s FROM %s WHERE %s = %%s and %s > %%s"
+246	                % (
+247	                    quote_name("cache_key"),
+248	                    quote_name(self._table),
+249	                    quote_name("cache_key"),
+250	                    quote_name("expires"),
+251	                ),
+252	                [key, connection.ops.adapt_datetimefield_value(now)],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:263:16
+262	            cursor.execute(
+263	                "DELETE FROM %s WHERE %s < %%s"
+264	                % (
+265	                    table,
+266	                    connection.ops.quote_name("expires"),
+267	                ),
+268	                [connection.ops.adapt_datetimefield_value(now)],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:280:24
+279	                    cursor.execute(
+280	                        "DELETE FROM %s WHERE %s < %%s"
+281	                        % (
+282	                            table,
+283	                            connection.ops.quote_name("cache_key"),
+284	                        ),
+285	                        [last_cache_key[0]],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/db.py:293:27
+292	        with connection.cursor() as cursor:
+293	            cursor.execute("DELETE FROM %s" % table)
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/filebased.py:36:27
+35	                if not self._is_expired(f):
+36	                    return pickle.loads(zlib.decompress(f.read()))
+37	        except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/filebased.py:69:41
+68	                    else:
+69	                        previous_value = pickle.loads(zlib.decompress(f.read()))
+70	                        f.seek(0)
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/filebased.py:153:18
+152	        try:
+153	            exp = pickle.load(f)
+154	        except EOFError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/locmem.py:42:15
+41	            self._cache.move_to_end(key, last=False)
+42	        return pickle.loads(pickled)
+43	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/locmem.py:72:20
+71	            pickled = self._cache[key]
+72	            value = pickle.loads(pickled)
+73	            new_value = value + delta
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/cache/backends/redis.py:27:19
+26	        except ValueError:
+27	            return pickle.loads(data)
+28	
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/management/commands/runserver.py:174:19
+173	        elif self.addr == "0":
+174	            addr = "0.0.0.0"
+175	        else:
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/management/commands/shell.py:78:20
+77	                try:
+78	                    exec(compile(pythonrc_code, pythonrc, "exec"), imported_objects)
+79	                except Exception:
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/management/commands/shell.py:117:12
+116	        if options["command"]:
+117	            exec(options["command"], globals())
+118	            return
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/core/management/commands/shell.py:127:12
+126	        ):
+127	            exec(sys.stdin.read(), globals())
+128	            return
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/core/serializers/base.py:33:15
+32	    def loads(self, data):
+33	        return pickle.loads(data)
+34	
+
+--------------------------------------------------
+>> Issue: [B319:blacklist] Using xml.dom.pulldom.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.pulldom.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b313-b320-xml-bad-pulldom
+   Location: ./venv/lib/python3.9/site-packages/django/core/serializers/xml_serializer.py:220:28
+219	        self.handle_forward_references = options.pop("handle_forward_references", False)
+220	        self.event_stream = pulldom.parse(self.stream, self._make_parser())
+221	        self.db = using
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/base/operations.py:94:15
+93	        cache_key = self.quote_name("cache_key")
+94	        return f"SELECT {cache_key} FROM %s ORDER BY {cache_key} LIMIT 1 OFFSET %%s"
+95	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/mysql/base.py:337:24
+336	                    cursor.execute(
+337	                        """
+338	                        SELECT REFERRING.`%s`, REFERRING.`%s` FROM `%s` as REFERRING
+339	                        LEFT JOIN `%s` as REFERRED
+340	                        ON (REFERRING.`%s` = REFERRED.`%s`)
+341	                        WHERE REFERRING.`%s` IS NOT NULL AND REFERRED.`%s` IS NULL
+342	                        """
+343	                        % (
+344	                            primary_key_column_name,
+345	                            column_name,
+346	                            table_name,
+347	                            referenced_table_name,
+348	                            column_name,
+349	                            referenced_column_name,
+350	                            column_name,
+351	                            referenced_column_name,
+352	                        )
+353	                    )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/mysql/introspection.py:152:12
+151	        cursor.execute(
+152	            "SELECT * FROM %s LIMIT 1" % self.connection.ops.quote_name(table_name)
+153	        )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/mysql/schema.py:114:16
+113	            self.execute(
+114	                "UPDATE %(table)s SET %(column)s = %%s"
+115	                % {
+116	                    "table": self.quote_name(model._meta.db_table),
+117	                    "column": self.quote_name(field.column),
+118	                },
+119	                [effective_default],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/base.py:288:20
+287	                cursor.execute(
+288	                    "SELECT 1 FROM DUAL WHERE DUMMY %s"
+289	                    % self._standard_operators["contains"],
+290	                    ["X"],
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/introspection.py:177:12
+176	        cursor.execute(
+177	            "SELECT * FROM {} WHERE ROWNUM < 2 AND {} > 0".format(
+178	                self.connection.ops.quote_name(table_name), self.cache_bust_counter
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/operations.py:75:12
+74	        return (
+75	            f"SELECT {cache_key} "
+76	            f"FROM %s "
+77	            f"ORDER BY {cache_key} OFFSET %%s ROWS FETCH FIRST 1 ROWS ONLY"
+78	        )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/operations.py:686:25
+685	                select.append(placeholder)
+686	            query.append("SELECT %s FROM DUAL" % ", ".join(select))
+687	        # Bulk insert to tables with Oracle identity columns causes Oracle to
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/operations.py:690:15
+689	        # UNION operator. To prevent incorrect SQL, move UNION to a subquery.
+690	        return "SELECT * FROM (%s)" % " UNION ALL ".join(query)
+691	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/schema.py:55:12
+54	        self.execute(
+55	            """
+56	            DECLARE
+57	                i INTEGER;
+58	            BEGIN
+59	                SELECT COUNT(1) INTO i FROM USER_SEQUENCES
+60	                    WHERE SEQUENCE_NAME = '%(sq_name)s';
+61	                IF i = 1 THEN
+62	                    EXECUTE IMMEDIATE 'DROP SEQUENCE "%(sq_name)s"';
+63	                END IF;
+64	            END;
+65	        /"""
+66	            % {
+67	                "sq_name": self.connection.ops._get_no_autofield_sequence_name(
+68	                    model._meta.db_table
+69	                )
+70	            }
+71	        )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/oracle/schema.py:145:12
+144	        self.execute(
+145	            "UPDATE %s set %s=%s"
+146	            % (
+147	                self.quote_name(model._meta.db_table),
+148	                self.quote_name(new_temp_field.column),
+149	                new_value,
+150	            )
+151	        )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/postgresql/introspection.py:113:12
+112	        cursor.execute(
+113	            "SELECT * FROM %s LIMIT 1" % self.connection.ops.quote_name(table_name)
+114	        )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/postgresql/operations.py:391:19
+390	        if on_conflict == OnConflict.UPDATE:
+391	            return "ON CONFLICT(%s) DO UPDATE SET %s" % (
+392	                ", ".join(map(self.quote_name, unique_fields)),
+393	                ", ".join(
+394	                    [
+395	                        f"{field} = EXCLUDED.{field}"
+396	                        for field in map(self.quote_name, update_fields)
+397	                    ]
+398	                ),
+399	            )
+400	        return super().on_conflict_suffix_sql(
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/_functions.py:444:11
+443	        return None
+444	    return sha1(text.encode()).hexdigest()
+445	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py:267:20
+266	                primary_key_value, bad_value = cursor.execute(
+267	                    "SELECT %s, %s FROM %s WHERE rowid = %%s"
+268	                    % (
+269	                        self.ops.quote_name(primary_key_column_name),
+270	                        self.ops.quote_name(column_name),
+271	                        self.ops.quote_name(table_name),
+272	                    ),
+273	                    (rowid,),
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/introspection.py:313:16
+312	            table_schema = cursor.execute(
+313	                "SELECT sql FROM sqlite_master WHERE type='table' and name=%s"
+314	                % (self.connection.ops.quote_name(table_name),)
+315	            ).fetchone()[0]
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/introspection.py:334:16
+333	            cursor.execute(
+334	                "SELECT sql FROM sqlite_master "
+335	                "WHERE type='index' AND name=%s" % self.connection.ops.quote_name(index)
+336	            )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/operations.py:420:19
+419	        ):
+420	            return "ON CONFLICT(%s) DO UPDATE SET %s" % (
+421	                ", ".join(map(self.quote_name, unique_fields)),
+422	                ", ".join(
+423	                    [
+424	                        f"{field} = EXCLUDED.{field}"
+425	                        for field in map(self.quote_name, update_fields)
+426	                    ]
+427	                ),
+428	            )
+429	        return super().on_conflict_suffix_sql(
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/schema.py:337:12
+336	        self.execute(
+337	            "INSERT INTO %s (%s) SELECT %s FROM %s"
+338	            % (
+339	                self.quote_name(new_model._meta.db_table),
+340	                ", ".join(self.quote_name(x) for x in mapping),
+341	                ", ".join(mapping.values()),
+342	                self.quote_name(model._meta.db_table),
+343	            )
+344	        )
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/backends/sqlite3/schema.py:532:12
+531	        self.execute(
+532	            "INSERT INTO %s (%s) SELECT %s FROM %s"
+533	            % (
+534	                self.quote_name(new_field.remote_field.through._meta.db_table),
+535	                ", ".join(
+536	                    [
+537	                        "id",
+538	                        new_field.m2m_column_name(),
+539	                        new_field.m2m_reverse_name(),
+540	                    ]
+541	                ),
+542	                ", ".join(
+543	                    [
+544	                        "id",
+545	                        old_field.m2m_column_name(),
+546	                        old_field.m2m_reverse_name(),
+547	                    ]
+548	                ),
+549	                self.quote_name(old_field.remote_field.through._meta.db_table),
+550	            )
+551	        )
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b307-eval
+   Location: ./venv/lib/python3.9/site-packages/django/db/migrations/questioner.py:162:27
+161	                try:
+162	                    return eval(code, {}, {"datetime": datetime, "timezone": timezone})
+163	                except (SyntaxError, NameError) as e:
+
+--------------------------------------------------
+>> Issue: [B610:django_extra_used] Use of extra potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b610_django_extra_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/fields/related_descriptors.py:1110:23
+1109	            qn = connection.ops.quote_name
+1110	            queryset = queryset.extra(
+1111	                select={
+1112	                    "_prefetch_related_val_%s"
+1113	                    % f.attname: "%s.%s"
+1114	                    % (qn(join_table), qn(f.column))
+1115	                    for f in fk.local_related_fields
+1116	                }
+1117	            )
+1118	            return (
+
+--------------------------------------------------
+>> Issue: [B611:django_rawsql_used] Use of RawSQL potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b611_django_rawsql_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:253:27
+252	            annotations[alias] = select_idx
+253	            select.append((RawSQL(sql, params), alias))
+254	            select_idx += 1
+
+--------------------------------------------------
+>> Issue: [B611:django_rawsql_used] Use of RawSQL potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b611_django_rawsql_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:411:24
+410	                    OrderBy(
+411	                        RawSQL(
+412	                            "%s.%s" % (self.quote_name_unless_alias(table), col), []
+413	                        ),
+414	                        descending=descending,
+
+--------------------------------------------------
+>> Issue: [B611:django_rawsql_used] Use of RawSQL potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b611_django_rawsql_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:424:37
+423	                        OrderBy(
+424	                            Ref(col, RawSQL(*self.query.extra[col])),
+425	                            descending=descending,
+
+--------------------------------------------------
+>> Issue: [B611:django_rawsql_used] Use of RawSQL potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b611_django_rawsql_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:431:32
+430	                    yield (
+431	                        OrderBy(RawSQL(*self.query.extra[col]), descending=descending),
+432	                        False,
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:592:35
+591	                    if not features.supports_parentheses_in_compound:
+592	                        part_sql = "SELECT * FROM ({})".format(part_sql)
+593	                    # Add parentheses when combining with compound query if not
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:940:23
+939	                        sub_params.extend(subparams)
+940	                return "SELECT %s FROM (%s) subquery" % (
+941	                    ", ".join(sub_selects),
+942	                    " ".join(result),
+943	                ), tuple(sub_params + params)
+944	
+
+--------------------------------------------------
+>> Issue: [B611:django_rawsql_used] Use of RawSQL potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b611_django_rawsql_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:1605:33
+1604	            rhs = "%s.%s" % (qn(alias), qn2(columns[index]))
+1605	            self.query.where.add(RawSQL("%s = %s" % (lhs_sql, rhs), lhs_params), AND)
+1606	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:1883:17
+1882	    def _as_sql(self, query):
+1883	        delete = "DELETE FROM %s" % self.quote_name_unless_alias(query.base_table)
+1884	        try:
+
+--------------------------------------------------
+>> Issue: [B611:django_rawsql_used] Use of RawSQL potential SQL attack vector.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b611_django_rawsql_used.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:1907:21
+1906	            sql, params = innerq.get_compiler(connection=self.connection).as_sql()
+1907	            innerq = RawSQL("SELECT * FROM (%s) subquery" % sql, params)
+1908	        outerq.add_filter("pk__in", innerq)
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:1907:28
+1906	            sql, params = innerq.get_compiler(connection=self.connection).as_sql()
+1907	            innerq = RawSQL("SELECT * FROM (%s) subquery" % sql, params)
+1908	        outerq.add_filter("pk__in", innerq)
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b608_hardcoded_sql_expressions.html
+   Location: ./venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py:2082:14
+2081	        ).as_sql(with_col_aliases=True)
+2082	        sql = "SELECT %s FROM (%s) subquery" % (sql, inner_query_sql)
+2083	        params += inner_query_params
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/forms/forms.py:313:15
+312	                output.append(str_hidden)
+313	        return mark_safe("\n".join(output))
+314	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/forms/forms.py:313:15
+312	                output.append(str_hidden)
+313	        return mark_safe("\n".join(output))
+314	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/forms/forms.py:343:33
+342	                    )
+343	                    errors_str = mark_safe(errors_str)
+344	                fields.append((bf, errors_str))
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/forms/forms.py:343:33
+342	                    )
+343	                    errors_str = mark_safe(errors_str)
+344	                fields.append((bf, errors_str))
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/forms/utils.py:75:15
+74	            )
+75	        return mark_safe(renderer.render(template, context))
+76	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/forms/utils.py:75:15
+74	            )
+75	        return mark_safe(renderer.render(template, context))
+76	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/forms/widgets.py:94:15
+93	    def render(self):
+94	        return mark_safe(
+95	            "\n".join(
+96	                chain.from_iterable(
+97	                    getattr(self, "render_" + name)() for name in MEDIA_TYPES
+98	                )
+99	            )
+100	        )
+101	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/forms/widgets.py:94:15
+93	    def render(self):
+94	        return mark_safe(
+95	            "\n".join(
+96	                chain.from_iterable(
+97	                    getattr(self, "render_" + name)() for name in MEDIA_TYPES
+98	                )
+99	            )
+100	        )
+101	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/forms/widgets.py:286:15
+285	            renderer = get_default_renderer()
+286	        return mark_safe(renderer.render(template_name, context))
+287	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/forms/widgets.py:286:15
+285	            renderer = get_default_renderer()
+286	        return mark_safe(renderer.render(template_name, context))
+287	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:734:36
+733	                if not lookup:
+734	                    arg_vals.append(mark_safe(arg))
+735	                else:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:734:36
+733	                if not lookup:
+734	                    arg_vals.append(mark_safe(arg))
+735	                else:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:744:22
+743	            if getattr(func, "is_safe", False) and isinstance(obj, SafeData):
+744	                obj = mark_safe(new_obj)
+745	            else:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:744:22
+743	            if getattr(func, "is_safe", False) and isinstance(obj, SafeData):
+744	                obj = mark_safe(new_obj)
+745	            else:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:832:31
+831	            try:
+832	                self.literal = mark_safe(unescape_string_literal(var))
+833	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:832:31
+831	            try:
+832	                self.literal = mark_safe(unescape_string_literal(var))
+833	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:854:20
+853	            msgid = value.replace("%", "%%")
+854	            msgid = mark_safe(msgid) if is_safe else msgid
+855	            if self.message_context:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:854:20
+853	            msgid = value.replace("%", "%%")
+854	            msgid = mark_safe(msgid) if is_safe else msgid
+855	            if self.message_context:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/base.py:1005:15
+1004	    def render(self, context):
+1005	        return SafeString("".join([node.render_annotated(context) for node in self]))
+1006	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:50:21
+49	        if isinstance(first, SafeData) and getattr(unwrap(func), "is_safe", False):
+50	            result = mark_safe(result)
+51	        return result
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:50:21
+49	        if isinstance(first, SafeData) and getattr(unwrap(func), "is_safe", False):
+50	            result = mark_safe(result)
+51	        return result
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:185:15
+184	    if not m and p <= 0:
+185	        return mark_safe(
+186	            formats.number_format(
+187	                "%d" % (int(d)),
+188	                0,
+189	                use_l10n=use_l10n,
+190	                force_grouping=force_grouping,
+191	            )
+192	        )
+193	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:185:15
+184	    if not m and p <= 0:
+185	        return mark_safe(
+186	            formats.number_format(
+187	                "%d" % (int(d)),
+188	                0,
+189	                use_l10n=use_l10n,
+190	                force_grouping=force_grouping,
+191	            )
+192	        )
+193	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:213:11
+212	    number = "".join(reversed(digits))
+213	    return mark_safe(
+214	        formats.number_format(
+215	            number,
+216	            abs(p),
+217	            use_l10n=use_l10n,
+218	            force_grouping=force_grouping,
+219	        )
+220	    )
+221	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:213:11
+212	    number = "".join(reversed(digits))
+213	    return mark_safe(
+214	        formats.number_format(
+215	            number,
+216	            abs(p),
+217	            use_l10n=use_l10n,
+218	            force_grouping=force_grouping,
+219	        )
+220	    )
+221	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:244:11
+243	            lines[i] = ("%0" + width + "d. %s") % (i + 1, escape(line))
+244	    return mark_safe("\n".join(lines))
+245	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:244:11
+243	            lines[i] = ("%0" + width + "d. %s") % (i + 1, escape(line))
+244	    return mark_safe("\n".join(lines))
+245	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:385:11
+384	    """Convert URLs in plain text into clickable links."""
+385	    return mark_safe(_urlize(value, nofollow=True, autoescape=autoescape))
+386	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:385:11
+384	    """Convert URLs in plain text into clickable links."""
+385	    return mark_safe(_urlize(value, nofollow=True, autoescape=autoescape))
+386	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:397:11
+396	    """
+397	    return mark_safe(
+398	        _urlize(value, trim_url_limit=int(limit), nofollow=True, autoescape=autoescape)
+399	    )
+400	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:397:11
+396	    """
+397	    return mark_safe(
+398	        _urlize(value, trim_url_limit=int(limit), nofollow=True, autoescape=autoescape)
+399	    )
+400	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:444:15
+443	    if safe and arg != ";":
+444	        return mark_safe(value)
+445	    return value
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:444:15
+443	    if safe and arg != ";":
+444	        return mark_safe(value)
+445	    return value
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:480:11
+479	    autoescape = autoescape and not isinstance(value, SafeData)
+480	    return mark_safe(linebreaks(value, autoescape))
+481	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:480:11
+479	    autoescape = autoescape and not isinstance(value, SafeData)
+480	    return mark_safe(linebreaks(value, autoescape))
+481	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:494:11
+493	        value = escape(value)
+494	    return mark_safe(value.replace("\n", "<br>"))
+495	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:494:11
+493	        value = escape(value)
+494	    return mark_safe(value.replace("\n", "<br>"))
+495	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:501:11
+500	    """Mark the value as a string that should not be auto-escaped."""
+501	    return mark_safe(value)
+502	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:501:11
+500	    """Mark the value as a string that should not be auto-escaped."""
+501	    return mark_safe(value)
+502	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:511:12
+510	    """
+511	    return [mark_safe(obj) for obj in value]
+512	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:511:12
+510	    """
+511	    return [mark_safe(obj) for obj in value]
+512	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:606:11
+605	        return value
+606	    return mark_safe(data)
+607	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:606:11
+605	        return value
+606	    return mark_safe(data)
+607	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:733:11
+732	
+733	    return mark_safe(list_formatter(value))
+734	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaultfilters.py:733:11
+732	
+733	    return mark_safe(list_formatter(value))
+734	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaulttags.py:55:19
+54	        if self.setting:
+55	            return mark_safe(output)
+56	        else:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaulttags.py:55:19
+54	        if self.setting:
+55	            return mark_safe(output)
+56	        else:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaulttags.py:245:15
+244	                    context.pop()
+245	        return mark_safe("".join(nodelist))
+246	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/defaulttags.py:245:15
+244	                    context.pop()
+245	        return mark_safe("".join(nodelist))
+246	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/loader_tags.py:79:19
+78	        ):
+79	            return mark_safe(self.render(self.context))
+80	        return ""
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/template/loader_tags.py:79:19
+78	        ):
+79	            return mark_safe(self.render(self.context))
+80	        return ""
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/django/template/loaders/cached.py:96:15
+95	    def generate_hash(self, values):
+96	        return hashlib.sha1("|".join(values).encode()).hexdigest()
+97	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/templatetags/i18n.py:96:16
+95	        value = value.replace("%%", "%")
+96	        value = mark_safe(value) if is_safe else value
+97	        if self.asvar:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/templatetags/i18n.py:96:16
+95	        value = value.replace("%%", "%")
+96	        value = mark_safe(value) if is_safe else value
+97	        if self.asvar:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/templatetags/i18n.py:201:34
+200	        if self.asvar:
+201	            context[self.asvar] = SafeString(result)
+202	            return ""
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/django/test/runner.py:186:8
+185	        """
+186	        pickle.loads(pickle.dumps(obj))
+187	
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: ./venv/lib/python3.9/site-packages/django/test/selenium.py:42:71
+41	            # Listen on an external interface if using a selenium hub.
+42	            host = test_class.host if not test_class.selenium_hub else "0.0.0.0"
+43	            test_class.host = host
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+   Location: ./venv/lib/python3.9/site-packages/django/test/utils.py:702:27
+701	    # Parse the want and got strings, and compare the parsings.
+702	    want_root = first_node(parseString(want))
+703	    got_root = first_node(parseString(got))
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+   Location: ./venv/lib/python3.9/site-packages/django/test/utils.py:703:26
+702	    want_root = first_node(parseString(want))
+703	    got_root = first_node(parseString(got))
+704	
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/crypto.py:90:15
+89	    def md5(data=b"", *, usedforsecurity=True):
+90	        return hashlib.md5(data)
+91	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:33:11
+32	    """
+33	    return SafeString(html.escape(str(text)))
+34	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:58:11
+57	    """Hex encode characters for use in JavaScript strings."""
+58	    return mark_safe(str(value).translate(_js_escapes))
+59	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:58:11
+57	    """Hex encode characters for use in JavaScript strings."""
+58	    return mark_safe(str(value).translate(_js_escapes))
+59	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:81:28
+80	        template = '<script id="{}" type="application/json">{}</script>'
+81	        args = (element_id, mark_safe(json_str))
+82	    else:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:81:28
+80	        template = '<script id="{}" type="application/json">{}</script>'
+81	        args = (element_id, mark_safe(json_str))
+82	    else:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:84:16
+83	        template = '<script type="application/json">{}</script>'
+84	        args = (mark_safe(json_str),)
+85	    return format_html(template, *args)
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:84:16
+83	        template = '<script type="application/json">{}</script>'
+84	        args = (mark_safe(json_str),)
+85	    return format_html(template, *args)
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:111:11
+110	    kwargs_safe = {k: conditional_escape(v) for (k, v) in kwargs.items()}
+111	    return mark_safe(format_string.format(*args_safe, **kwargs_safe))
+112	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:111:11
+110	    kwargs_safe = {k: conditional_escape(v) for (k, v) in kwargs.items()}
+111	    return mark_safe(format_string.format(*args_safe, **kwargs_safe))
+112	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:128:11
+127	    """
+128	    return mark_safe(
+129	        conditional_escape(sep).join(
+130	            format_html(format_string, *args) for args in args_generator
+131	        )
+132	    )
+133	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:128:11
+127	    """
+128	    return mark_safe(
+129	        conditional_escape(sep).join(
+130	            format_html(format_string, *args) for args in args_generator
+131	        )
+132	    )
+133	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:339:23
+338	                )
+339	                return mark_safe(f"{lead}{middle}{trail}")
+340	            else:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:339:23
+338	                )
+339	                return mark_safe(f"{lead}{middle}{trail}")
+340	            else:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:342:27
+341	                if safe_input:
+342	                    return mark_safe(word)
+343	                elif autoescape:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:342:27
+341	                if safe_input:
+342	                    return mark_safe(word)
+343	                elif autoescape:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:346:19
+345	        elif safe_input:
+346	            return mark_safe(word)
+347	        elif autoescape:
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:346:19
+345	        elif safe_input:
+346	            return mark_safe(word)
+347	        elif autoescape:
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:480:33
+479	    klass_str = klass.__str__
+480	    klass.__str__ = lambda self: mark_safe(klass_str(self))
+481	    klass.__html__ = lambda self: str(self)
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/html.py:480:33
+479	    klass_str = klass.__str__
+480	    klass.__str__ = lambda self: mark_safe(klass_str(self))
+481	    klass.__html__ = lambda self: str(self)
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/numberformat.py:29:15
+28	    if number is None or number == "":
+29	        return mark_safe(number)
+30	    use_grouping = (
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/numberformat.py:29:15
+28	    if number is None or number == "":
+29	        return mark_safe(number)
+30	    use_grouping = (
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/numberformat.py:37:15
+36	    if isinstance(number, int) and not use_grouping and not decimal_pos:
+37	        return mark_safe(number)
+38	    # sign
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/numberformat.py:37:15
+36	    if isinstance(number, int) and not use_grouping and not decimal_pos:
+37	        return mark_safe(number)
+38	    # sign
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/translation/trans_real.py:389:15
+388	    if isinstance(message, SafeData):
+389	        return mark_safe(result)
+390	
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/translation/trans_real.py:389:15
+388	    if isinstance(message, SafeData):
+389	        return mark_safe(result)
+390	
+
+--------------------------------------------------
+>> Issue: [B703:django_mark_safe] Potential XSS on mark_safe function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-80 (https://cwe.mitre.org/data/definitions/80.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b703_django_mark_safe.html
+   Location: ./venv/lib/python3.9/site-packages/django/utils/translation/trans_real.py:401:17
+400	    elif isinstance(message, SafeData):
+401	        result = mark_safe(result)
+402	    return result
+
+--------------------------------------------------
+>> Issue: [B308:blacklist] Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.
+   Severity: Medium   Confidence: High
+   CWE: CWE-79 (https://cwe.mitre.org/data/definitions/79.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b308-mark-safe
+   Location: ./venv/lib/python3.9/site-packages/django/utils/translation/trans_real.py:401:17
+400	    elif isinstance(message, SafeData):
+401	        result = mark_safe(result)
+402	    return result
+
+--------------------------------------------------
+>> Issue: [B604:any_other_function_with_shell_equals_true] Function call with shell=True parameter identified, possible security issue.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b604_any_other_function_with_shell_equals_true.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_internal/commands/completion.py:85:18
+84	            )
+85	            print(BASE_COMPLETION.format(script=script, shell=options.shell))
+86	            return SUCCESS
+
+--------------------------------------------------
+>> Issue: [B411:blacklist] Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.
+   Severity: High   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b411-import-xmlrpclib
+   Location: ./venv/lib/python3.9/site-packages/pip/_internal/commands/search.py:5:0
+4	import textwrap
+5	import xmlrpc.client
+6	from collections import OrderedDict
+
+--------------------------------------------------
+>> Issue: [B411:blacklist] Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.
+   Severity: High   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b411-import-xmlrpclib
+   Location: ./venv/lib/python3.9/site-packages/pip/_internal/network/xmlrpc.py:6:0
+5	import urllib.parse
+6	import xmlrpc.client
+7	from typing import TYPE_CHECKING, Tuple
+
+--------------------------------------------------
+>> Issue: [B411:blacklist] Using _HostType to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.
+   Severity: High   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b411-import-xmlrpclib
+   Location: ./venv/lib/python3.9/site-packages/pip/_internal/network/xmlrpc.py:14:4
+13	if TYPE_CHECKING:
+14	    from xmlrpc.client import _HostType, _Marshallable
+15	
+
+--------------------------------------------------
+>> Issue: [B202:tarfile_unsafe_members] tarfile.extractall used without any validation. Please check and discard dangerous members.
+   Severity: High   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b202_tarfile_unsafe_members.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/distlib/_backport/shutil.py:709:8
+708	    try:
+709	        tarobj.extractall(extract_dir)
+710	    finally:
+
+--------------------------------------------------
+>> Issue: [B411:blacklist] Using xmlrpclib to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.
+   Severity: High   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b411-import-xmlrpclib
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/distlib/compat.py:43:4
+42	    import httplib
+43	    import xmlrpclib
+44	    import Queue as queue
+
+--------------------------------------------------
+>> Issue: [B411:blacklist] Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.
+   Severity: High   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b411-import-xmlrpclib
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/distlib/compat.py:83:4
+82	    import urllib.request as urllib2
+83	    import xmlrpc.client as xmlrpclib
+84	    import queue
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/distlib/database.py:1017:19
+1016	                f.close()
+1017	            return hashlib.md5(content).hexdigest()
+1018	
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/distlib/index.py:269:21
+268	            file_data = f.read()
+269	        md5_digest = hashlib.md5(file_data).hexdigest()
+270	        sha256_digest = hashlib.sha256(file_data).hexdigest()
+
+--------------------------------------------------
+>> Issue: [B202:tarfile_unsafe_members] tarfile.extractall used without any validation. Please check and discard dangerous members.
+   Severity: High   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b202_tarfile_unsafe_members.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/distlib/util.py:1248:8
+1247	                    tarinfo.name = tarinfo.name.decode('utf-8')
+1248	        archive.extractall(dest_dir)
+1249	
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b307-eval
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/html5lib/_inputstream.py:32:36
+31	    invalid_unicode_re = re.compile(invalid_unicode_no_surrogate[:-1] +
+32	                                    eval('"\\uD800-\\uDFFF"') +  # pylint:disable=eval-used
+33	                                    "]")
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b307-eval
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/html5lib/_utils.py:33:9
+32	try:
+33	    _x = eval('"\\uD800"')  # pylint:disable=eval-used
+34	    if not isinstance(_x, text_type):
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b307-eval
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/html5lib/_utils.py:36:13
+35	        # We need this with u"" because of http://bugs.jython.org/issue2039
+36	        _x = eval('u"\\uD800"')  # pylint:disable=eval-used
+37	        assert isinstance(_x, text_type)
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/pkg_resources/__init__.py:1462:12
+1461	            code = compile(source, script_filename, 'exec')
+1462	            exec(code, namespace, namespace)
+1463	        else:
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/pkg_resources/__init__.py:1469:12
+1468	            script_code = compile(script_text, script_filename, 'exec')
+1469	            exec(script_code, namespace, namespace)
+1470	
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/requests/auth.py:148:23
+147	                    x = x.encode('utf-8')
+148	                return hashlib.md5(x).hexdigest()
+149	            hash_utf8 = md5_utf8
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/requests/auth.py:154:23
+153	                    x = x.encode('utf-8')
+154	                return hashlib.sha1(x).hexdigest()
+155	            hash_utf8 = sha_utf8
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b324_hashlib.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/requests/auth.py:198:18
+197	
+198	        cnonce = (hashlib.sha1(s).hexdigest()[:16])
+199	        if _algorithm == 'MD5-SESS':
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/six.py:735:8
+734	            _locs_ = _globs_
+735	        exec("""exec _code_ in _globs_, _locs_""")
+736	
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/urllib3/packages/six.py:788:8
+787	            _locs_ = _globs_
+788	        exec ("""exec _code_ in _globs_, _locs_""")
+789	
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pip/_vendor/webencodings/mklabels.py:47:35
+46	         repr(encoding['name']).lstrip('u'))
+47	        for category in json.loads(urlopen(url).read().decode('ascii'))
+48	        for encoding in category['encodings']
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pkg_resources/__init__.py:1448:12
+1447	            code = compile(source, script_filename, 'exec')
+1448	            exec(code, namespace, namespace)
+1449	        else:
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pkg_resources/__init__.py:1455:12
+1454	            script_code = compile(script_text, script_filename, 'exec')
+1455	            exec(script_code, namespace, namespace)
+1456	
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pygments/formatters/__init__.py:103:12
+102	        with open(filename, 'rb') as f:
+103	            exec(f.read(), custom_namespace)
+104	        # Retrieve the class `formattername` from that namespace
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/__init__.py:154:12
+153	        with open(filename, 'rb') as f:
+154	            exec(f.read(), custom_namespace)
+155	        # Retrieve the class `lexername` from that namespace
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_lua_builtins.py:225:12
+224	    def get_newest_version():
+225	        f = urlopen('http://www.lua.org/manual/')
+226	        r = re.compile(r'^<A HREF="(\d\.\d)/">(Lua )?\1</A>')
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_lua_builtins.py:233:12
+232	    def get_lua_functions(version):
+233	        f = urlopen(f'http://www.lua.org/manual/{version}/')
+234	        r = re.compile(r'^<A HREF="manual.html#pdf-(?!lua|LUA)([^:]+)">\1</A>')
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_mysql_builtins.py:1248:19
+1247	        # Pull content from lex.h.
+1248	        lex_file = urlopen(LEX_URL).read().decode('utf8', errors='ignore')
+1249	        keywords = parse_lex_keywords(lex_file)
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_mysql_builtins.py:1254:27
+1253	        # Parse content in item_create.cc.
+1254	        item_create_file = urlopen(ITEM_CREATE_URL).read().decode('utf8', errors='ignore')
+1255	        functions.update(parse_item_create_functions(item_create_file))
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_php_builtins.py:3299:19
+3298	    def get_php_references():
+3299	        download = urlretrieve(PHP_MANUAL_URL)
+3300	        with tarfile.open(download[0]) as tar:
+
+--------------------------------------------------
+>> Issue: [B202:tarfile_unsafe_members] tarfile.extractall used without any validation. Please check and discard dangerous members.
+   Severity: High   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b202_tarfile_unsafe_members.html
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_php_builtins.py:3301:12
+3300	        with tarfile.open(download[0]) as tar:
+3301	            tar.extractall()
+3302	        yield from glob.glob(f"{PHP_MANUAL_DIR}{PHP_REFERENCE_GLOB}")
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_postgres_builtins.py:642:18
+641	    def update_myself():
+642	        content = urlopen(DATATYPES_URL).read().decode('utf-8', errors='ignore')
+643	        data_file = list(content.splitlines())
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/pygments/lexers/_postgres_builtins.py:647:18
+646	
+647	        content = urlopen(KEYWORDS_URL).read().decode('utf-8', errors='ignore')
+648	        keywords = parse_keywords(content)
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b301-pickle
+   Location: ./venv/lib/python3.9/site-packages/rich/style.py:471:66
+470	        """Get meta information (can not be changed after construction)."""
+471	        return {} if self._meta is None else cast(Dict[str, Any], loads(self._meta))
+472	
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b605_start_process_with_a_shell.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/command/bdist_rpm.py:340:14
+339	
+340	        out = os.popen(q_cmd)
+341	        try:
+
+--------------------------------------------------
+>> Issue: [B306:blacklist] Use of insecure and deprecated function (mktemp).
+   Severity: Medium   Confidence: High
+   CWE: CWE-377 (https://cwe.mitre.org/data/definitions/377.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b306-mktemp-q
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/command/bdist_wininst.py:185:27
+184	        from tempfile import mktemp
+185	        archive_basename = mktemp()
+186	        fullname = self.distribution.get_fullname()
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/command/register.py:89:19
+88	        url = self.repository+'?:action=list_classifiers'
+89	        response = urllib.request.urlopen(url)
+90	        log.info(self._read_pypi_response(response))
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/command/upload.py:194:21
+193	        try:
+194	            result = urlopen(request)
+195	            status = result.getcode()
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/core.py:215:16
+214	            with open(script_name, 'rb') as f:
+215	                exec(f.read(), g)
+216	        finally:
+
+--------------------------------------------------
+>> Issue: [B602:subprocess_popen_with_shell_equals_true] subprocess call with shell=True identified, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b602_subprocess_popen_with_shell_equals_true.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/cygwinccompiler.py:391:10
+390	        return None
+391	    out = Popen(cmd, shell=True, stdout=PIPE).stdout
+392	    try:
+
+--------------------------------------------------
+>> Issue: [B306:blacklist] Use of insecure and deprecated function (mktemp).
+   Severity: Medium   Confidence: High
+   CWE: CWE-377 (https://cwe.mitre.org/data/definitions/377.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b306-mktemp-q
+   Location: ./venv/lib/python3.9/site-packages/setuptools/_distutils/util.py:443:45
+442	            from tempfile import mktemp
+443	            (script_fd, script_name) = None, mktemp(".py")
+444	        log.info("writing byte-compilation script '%s'", script_name)
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/build_meta.py:150:8
+149	
+150	        exec(compile(code, __file__, 'exec'), locals())
+151	
+
+--------------------------------------------------
+>> Issue: [B302:blacklist] Deserialization with the marshal module is possibly dangerous.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b302-marshal
+   Location: ./venv/lib/python3.9/site-packages/setuptools/command/bdist_egg.py:376:11
+375	    f.read(skip)
+376	    code = marshal.load(f)
+377	    f.close()
+
+--------------------------------------------------
+>> Issue: [B302:blacklist] Deserialization with the marshal module is possibly dangerous.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b302-marshal
+   Location: ./venv/lib/python3.9/site-packages/setuptools/depends.py:111:19
+110	            f.read(8)  # skip magic & date
+111	            code = marshal.load(f)
+112	        elif kind == PY_FROZEN:
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/launch.py:32:4
+31	    code = compile(norm_script, script_name, 'exec')
+32	    exec(code, namespace)
+33	
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b605_start_process_with_a_shell.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/package_index.py:853:8
+852	        self.info("Doing subversion checkout from %s to %s", url, filename)
+853	        os.system("svn checkout%s -q %s %s" % (creds, url, filename))
+854	        return filename
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b605_start_process_with_a_shell.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/package_index.py:879:8
+878	        self.info("Doing git clone from %s to %s", url, filename)
+879	        os.system("git clone --quiet %s %s" % (url, filename))
+880	
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b605_start_process_with_a_shell.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/package_index.py:883:12
+882	            self.info("Checking out %s", rev)
+883	            os.system("git -C %s checkout --quiet %s" % (
+884	                filename,
+885	                rev,
+886	            ))
+887	
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b605_start_process_with_a_shell.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/package_index.py:895:8
+894	        self.info("Doing hg clone from %s to %s", url, filename)
+895	        os.system("hg clone --quiet %s %s" % (url, filename))
+896	
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b605_start_process_with_a_shell.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/package_index.py:899:12
+898	            self.info("Updating to %s", rev)
+899	            os.system("hg --cwd %s up -C -r %s -q" % (
+900	                filename,
+901	                rev,
+902	            ))
+903	
+
+--------------------------------------------------
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: ./venv/lib/python3.9/site-packages/setuptools/package_index.py:1096:15
+1095	    if os.path.isfile(filename):
+1096	        return urllib.request.urlopen(url)
+1097	    elif path.endswith('/') and os.path.isdir(filename):
+
+--------------------------------------------------
+>> Issue: [B102:exec_used] Use of exec detected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b102_exec_used.html
+   Location: ./venv/lib/python3.9/site-packages/setuptools/sandbox.py:46:4
+45	    code = compile(script, filename, 'exec')
+46	    exec(code, globals, locals)
+47	
+
+--------------------------------------------------
+>> Issue: [B108:hardcoded_tmp_directory] Probable insecure usage of temp file/directory.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-377 (https://cwe.mitre.org/data/definitions/377.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/plugins/b108_hardcoded_tmp_directory.html
+   Location: ./venv/lib/python3.9/site-packages/stevedore/tests/test_cache.py:29:50
+28	        """
+29	        with mock.patch.object(sys, 'executable', '/tmp/fake'):
+30	            sot = _cache.Cache()
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b307-eval
+   Location: ./venv/lib/python3.9/site-packages/typing_extensions.py:4034:53
+4033	        return_value = {key:
+4034	            value if not isinstance(value, str) else eval(value, globals, locals)
+4035	            for key, value in ann.items() }
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b307-eval
+   Location: ./venv/lib/python3.9/site-packages/typing_extensions.py:4116:20
+4115	            code = forward_ref.__forward_code__
+4116	            value = eval(code, globals, locals)
+4117	        forward_ref.__forward_evaluated__ = True
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 448541
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 11
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 752
+		Medium: 208
+		High: 29
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 13
+		Medium: 74
+		High: 902
+Files skipped (0):

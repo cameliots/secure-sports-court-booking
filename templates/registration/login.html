@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-5">
+
+        <div class="card shadow-lg border-0 p-5">
+
+            <h2 class="fw-bold text-center mb-4">Login</h2>
+
+            <!-- Django error messages -->
+            {% if form.errors %}
+                <div class="alert alert-danger text-center">
+                    Login failed. Please check your credentials and try again
+                </div>
+            {% endif %}
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                <!-- Username -->
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        class="form-control form-control-lg"
+                        required
+                        autofocus
+                    >
+                </div>
+
+                <!-- Password with eye icon -->
+                <div class="mb-4">
+                    <label class="form-label">Password</label>
+
+                    <div class="position-relative">
+                        <input
+                            type="password"
+                            name="password"
+                            id="passwordInput"
+                            class="form-control form-control-lg pe-5"
+                            required
+                        >
+
+                        <span
+                            id="togglePassword"
+                            class="position-absolute top-50 end-0 translate-middle-y me-3"
+                            style="cursor: pointer;"
+                        >
+                            <i class="fa-solid fa-eye text-secondary"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Login Button -->
+                <div class="d-grid mb-3">
+                    <button type="submit"
+                            class="btn btn-primary btn-lg rounded-pill">
+                        LOGIN
+                    </button>
+                </div>
+
+                <!-- Register link -->
+                <div class="text-center">
+                    <a href="{% url 'register' %}" class="text-decoration-none">
+                        Don’t have an account? Sign up
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Show / Hide Password Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const passwordInput = document.getElementById("passwordInput");
+    const togglePassword = document.getElementById("togglePassword");
+    const icon = togglePassword.querySelector("i");
+
+    togglePassword.addEventListener("click", function () {
+        const isPassword = passwordInput.type === "password";
+
+        passwordInput.type = isPassword ? "text" : "password";
+        icon.className = isPassword
+            ? "fa-solid fa-eye-slash text-secondary"
+            : "fa-solid fa-eye text-secondary";
+    });
+});
+</script>
+{% endblock %}
